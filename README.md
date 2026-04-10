@@ -37,20 +37,26 @@ Para minimizar os passos braçais e facilitar sua vida, eu criei três ferrament
 
 ### 2. Website (IIS)
 1. Abra o painel do IIS Manager no Windows.
-2. Crie ou emponte um novo `Application/Website` para o diretório `Client/Request` na porta 80.
+2. Crie ou emponte um novo `Application/Website` para o diretório `Client/Request` **na porta 8080**. (A porta 80 costuma ser bloqueada por provedores de internet residenciais).
 3. Certifique-se de que o **Application Pool** correspondente esteja usando o pipeline "Integrated" do .NET v4.0.
 
-### 3. Liberação de Portas (Firewall)
-Não importa se está rodando em VPS, AWS ou no seu computador: **Você obrigatoriamente precisa abrir** as portas Inbound/Entrada no "Windows Defender Firewall" e também no Painel de Controle de Redes do servidor em que estiver (ou roteador). O DDTank utiliza estas 4 portas de comunicação estritas:
-- **Porta 80 (TCP):** Onde roda o Site e o Flash (no IIS).
-- **Porta 9202 (TCP):** Login / Center Server (Mantém a sessão logada ativa).
+### 3. Liberação de Portas (Rede e Firewall)
+Para hospedar na sua própria rede, escolha uma das opções abaixo:
+
+**Opção 1: Abrir portas no Roteador (Público)**
+Você obrigatoriamente precisa abrir as portas Inbound/Entrada no "Windows Defender Firewall" (o `instalar_dependencias.bat` faz isso) e também fazer o "Port Forwarding" no seu Roteador para o IPv4 do seu PC. O DDTank requer a liberação destas 4 portas de comunicação TCP:
+- **Porta 8080 (TCP):** Onde roda o Site e o Flash (no IIS). Padrão alterado para evitar bloqueios de provedor.
+- **Porta 9202 (TCP):** Login / Center Server (sessão logada).
 - **Porta 9208 (TCP):** Combat / Fight Server (Trajetória da bala e física).
-- **Porta 9500 (TCP):** Mundo e Socket / Road Server (Anda pela tela global).
+- **Porta 9500 (TCP):** Mundo e Socket / Road Server (Move pela tela).
+
+**Opção 2: Jogar por VPN Virtual (Recomendada para amigos / Hamachi / Radmin VPN)**
+Se você não consegue ou não tem acesso ao roteador (CGNAT), basta criar uma rede no Radmin VPN ou Hamachi e pedir para seus amigos entrarem. O seu IP "Local" passa a ser o IP do Hamachi (ex: `26.x.x.x`). Como a rede virtual local não tem bloqueios externos, o hoster não precisa mexer no roteador. Coloque o IPv4 da VPN no `configurar.bat`!
 
 ### 4. Rodando o Jogo
 Vá até a base dos arquivos extraídos e rode o arquivo **`ligar_servidor.bat`**.
 
-Acesse `http://localhost` (ou o IP do seu servidor/IP Publico) em um browser com suporte a flash.
+Acesse `http://localhost:8080` (ou o IP do seu servidor/ Hamachi) em um browser com suporte a flash.
 
 ### 4. Gerando o Launcher (Aplicativo para os jogadores)
 Para não depender de navegadores antigos com Flash, o repositório conta com um Launcher Nativo (.NET 4.0):

@@ -27,7 +27,7 @@ echo.
 echo ==============================================================
 echo 2. Liberando portas no Firewall do Windows (Anti-Bloqueio)
 echo ==============================================================
-netsh advfirewall firewall add rule name="DDTank Web (80)" dir=in action=allow protocol=TCP localport=80
+netsh advfirewall firewall add rule name="DDTank Web (8080)" dir=in action=allow protocol=TCP localport=8080
 netsh advfirewall firewall add rule name="DDTank Login Center (9202)" dir=in action=allow protocol=TCP localport=9202
 netsh advfirewall firewall add rule name="DDTank Fight (9208)" dir=in action=allow protocol=TCP localport=9208
 netsh advfirewall firewall add rule name="DDTank Road/Socket (9500)" dir=in action=allow protocol=TCP localport=9500
@@ -46,6 +46,6 @@ start https://aka.ms/ssmsfullsetup
 echo.
 echo ==============================================================
 echo Instalação de dependências do Windows completa!
-echo O Servidor Web já deve estar rodando. Teste entrando em http://localhost.
+echo O Servidor Web já deve estar rodando. Teste entrando em http://localhost:8080.
 echo ==============================================================
 pause
