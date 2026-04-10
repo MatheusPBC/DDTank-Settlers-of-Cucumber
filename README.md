@@ -108,6 +108,36 @@ Para não depender de navegadores antigos com Flash, o repositório conta com um
 3. Compilar (Build) o projeto.
 4. Distribuir o `.exe` gerado para seus amigos jogarem com um duplo-clique.
 
+## Como Hostear
+
+1. Baixe o `DDTank-Settlers-of-Cucumber-v4.1.0.zip` e os 3 arquivos `.bak` do release.
+2. Extraia o ZIP em uma pasta no Windows.
+3. Coloque `Db_Membership.bak`, `Game34.bak` e `Player34.bak` dentro de `Database/`.
+4. Execute `instalar_dependencias.bat` como Administrador.
+5. Restaure os 3 bancos no SQL Server usando o SSMS.
+6. Execute `configurar.bat` e informe:
+- IP do host
+- senha do usuário `sa`
+7. Configure o IIS para servir:
+- `Client/Request` na porta `8080`
+- `Client/Flash` na mesma porta `8080` ou como aplicação filha
+8. Execute `ligar_servidor.bat`.
+9. Teste no host:
+- `http://localhost:8080`
+- ou `http://SEU_IP:8080`
+
+## Como Jogar
+
+1. Entre na mesma rede do host.
+- LAN local, `Radmin VPN` ou `Hamachi`
+2. Receba do host:
+- o IP do servidor
+- ou o launcher já compilado/configurado
+3. Se for jogar pelo navegador, abra:
+- `http://IP_DO_HOST:8080`
+4. Se for jogar pelo launcher, execute o `.exe` enviado pelo host.
+5. Faça login e teste a entrada no lobby.
+
 ## Portas e Serviços
 
 | Porta | Serviço | Protocolo | Descrição |
