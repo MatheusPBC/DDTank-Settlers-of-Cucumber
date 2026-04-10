@@ -22,7 +22,12 @@ Para rodar este pacote sem erros, seu servidor (ou Máquina Virtual) precisará 
 - **IIS (Internet Information Services):** Com os módulos/features `ASP.NET 3.5` e `ASP.NET 4.8` instalados e a subcategoria IIS habilitada no Windows Features.
 - **.NET Framework 4.8 Runtime.**
 
-## Instalação Rápida
+## Instalação Rápida e Auto-Script
+
+Para minimizar os passos braçais e facilitar sua vida, eu criei duas ferramentas `.bat` na raiz dos arquivos que fazem as coisas sozinhas:
+
+*   **`configurar.bat`:** Ao dar dois cliques, ele abre um console preto pedindo para você digitar seu **IP** e sua **Senha do banco de Dados**. Quando você dá "Enter", ele varre automaticamente os 4 arquivos de configuração pesados do jogo e arruma em menos de 1 segundo de uma vez só! Use antes de plugar tudo online.
+*   **`ligar_servidor.bat`:** Inicializa os três arquivos vitais do C# (`Center`, `Fight` e `Road`) nas sequências e intervalos de tempos corretos usando apenas dois cliques.
 
 ### 1. Banco de Dados (SQL Server)
 1. Instale o Microsoft SQL Server e abra o SQL Server Management Studio (SSMS).
@@ -34,13 +39,17 @@ Para rodar este pacote sem erros, seu servidor (ou Máquina Virtual) precisará 
 2. Crie ou emponte um novo `Application/Website` para o diretório `Client/Request` na porta 80.
 3. Certifique-se de que o **Application Pool** correspondente esteja usando o pipeline "Integrated" do .NET v4.0.
 
-### 3. Rodando o Jogo
-Navegue até as pastas dentro de `Server/` e inicie os executáveis na seguinte ordem:
-1. `Center.Service.exe`
-2. `Fighting.Service.exe`
-3. `Road.Service.exe`
+### 3. Liberação de Portas (Firewall)
+Não importa se está rodando em VPS, AWS ou no seu computador: **Você obrigatoriamente precisa abrir** as portas Inbound/Entrada no "Windows Defender Firewall" e também no Painel de Controle de Redes do servidor em que estiver (ou roteador). O DDTank utiliza estas 4 portas de comunicação estritas:
+- **Porta 80 (TCP):** Onde roda o Site e o Flash (no IIS).
+- **Porta 9202 (TCP):** Login / Center Server (Mantém a sessão logada ativa).
+- **Porta 9208 (TCP):** Combat / Fight Server (Trajetória da bala e física).
+- **Porta 9500 (TCP):** Mundo e Socket / Road Server (Anda pela tela global).
 
-Acesse `http://localhost` (ou o IP do seu servidor) em um browser com suporte a flash.
+### 4. Rodando o Jogo
+Vá até a base dos arquivos extraídos e rode o arquivo **`ligar_servidor.bat`**.
+
+Acesse `http://localhost` (ou o IP do seu servidor/IP Publico) em um browser com suporte a flash.
 
 ### 4. Gerando o Launcher (Aplicativo para os jogadores)
 Para não depender de navegadores antigos com Flash, o repositório conta com um Launcher Nativo (.NET 4.0):
