@@ -11,6 +11,7 @@ Este repositório contém a versão pré-configurada e extraída dos arquivos de
 *   `Client/`: Arquivos que devem ser hospedados no IIS.
     *    **Request:** Backend web-based (.NET) utilizado para gerenciar requests HTTP e painéis do jogo.
     *    **Flash:** Os arquivos nativos Flash (SWF), UI, Imagens e resources servidos pelo navegador.
+    *    **LauncherSource:** Código fonte base do Launcher Executável (Windows Forms) em C#.
 *   `Database/`: Backups `.bak` do Microsoft SQL Server que devem ser restaurados para que o jogo funcione (`Db_Membership`, `Game34`, `Player34`).
 
 ## Pré-requisitos (Windows)
@@ -40,3 +41,10 @@ Navegue até as pastas dentro de `Server/` e inicie os executáveis na seguinte 
 3. `Road.Service.exe`
 
 Acesse `http://localhost` (ou o IP do seu servidor) em um browser com suporte a flash.
+
+### 4. Gerando o Launcher (Aplicativo para os jogadores)
+Para não depender de navegadores antigos com Flash, o repositório conta com um Launcher Nativo (.NET 4.0):
+1. O host deve abrir a pasta `Client/LauncherSource` usando o **Visual Studio**.
+2. Procurar pelas strings de IP genéricas (ou os URLs de exemplo) e alterar para o IP da sua infraestrutura.
+3. Compilar (Build) o projeto.
+4. Distribuir o `.exe` gerado para seus amigos jogarem com um duplo-clique.
