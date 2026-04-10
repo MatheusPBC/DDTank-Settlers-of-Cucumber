@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <config>
-    <FLASHSITE value="http://127.0.0.1/flash/" />
-    <BACKUP_FLASHSITE value="http://127.0.0.1/flash/" />
+    <FLASHSITE value="http://127.0.0.1:8080/flash/" />
+    <BACKUP_FLASHSITE value="http://127.0.0.1:8080/flash/" />
     <USE_MD5 value="false" />
-    <SITE value="http://127.0.0.1/resource/" />
-    <FIRSTPAGE value="http://127.0.0.1" />
-    <REGISTER value="http://127.0.0.1" />
-    <REQUEST_PATH value="http://127.0.0.1/Request/" />
-    <LOGIN_PATH value="http://127.0.0.1" siteName="Gunny" />
-    <FILL_PATH value="http://127.0.0.1/launcher/topup.htm?pid=49&amp;acc={user}&amp;serid=1" />
+    <SITE value="http://127.0.0.1:8080/resource/" />
+    <FIRSTPAGE value="http://127.0.0.1:8080" />
+    <REGISTER value="http://127.0.0.1:8080" />
+    <REQUEST_PATH value="http://127.0.0.1:8080/Request/" />
+    <LOGIN_PATH value="http://127.0.0.1:8080" siteName="Gunny" />
+    <FILL_PATH value="http://127.0.0.1:8080/launcher/topup.htm?pid=49&amp;acc={user}&amp;serid=1" />
     <POLICY_FILES>
-      <file value="http://127.0.0.1/resource/crossdomain.xml" />
+      <file value="http://127.0.0.1:8080/resource/crossdomain.xml" />
     </POLICY_FILES>
     <GAME_BOXPIC value="7" />
     <FIGHTLIB value="true" />
