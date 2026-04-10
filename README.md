@@ -2,6 +2,8 @@
 
 Este repositório contém a versão pré-configurada e extraída dos arquivos de servidor, cliente e banco de dados para a versão **4.1 do DDTank**. Toda a estrutura já foi adaptada para rodar nativamente em servidores Windows.
 
+> **⚠️ Antes de começar:** Os backups do banco de dados (`.bak`) **não são versionados** no repositório. Baixe-os do [Release v4.1.0](https://github.com/MatheusPBC/DDTank-Settlers-of-Cucumber/releases/tag/v4.1.0) e coloque na pasta `Database/`.
+
 ## Estrutura de Pastas
 
 *   `Server/`: Contém os binários compilados em **C# (.NET Framework 4.7.2/4.8)** divididos em 3 serviços:
@@ -12,7 +14,7 @@ Este repositório contém a versão pré-configurada e extraída dos arquivos de
     *    **Request:** Backend web-based (.NET) utilizado para gerenciar requests HTTP e painéis do jogo.
     *    **Flash:** Os arquivos nativos Flash (SWF), UI, Imagens e resources servidos pelo navegador.
     *    **LauncherSource:** Código fonte base do Launcher Executável (Windows Forms) em C#.
-*   `Database/`: Backups `.bak` do Microsoft SQL Server que devem ser restaurados para que o jogo funcione (`Db_Membership`, `Game34`, `Player34`). **Os arquivos `.bak` não são versionados** — adicione-os manualmente ou baixe do release.
+*   `Database/`: Backups `.bak` do Microsoft SQL Server que devem ser restaurados para que o jogo funcione (`Db_Membership`, `Game34`, `Player34`). **Os arquivos `.bak` baixam-se do [Release](https://github.com/MatheusPBC/DDTank-Settlers-of-Cucumber/releases/tag/v4.1.0)** — não são versionados no git.
 
 ## Pré-requisitos (Windows)
 
@@ -64,10 +66,11 @@ Para os serviços na ordem reversa (Road → Fight → Center):
 - Tabela resumo final
 
 ### 1. Banco de Dados (SQL Server)
-1. Execute `instalar_dependencias.bat` como Administrador para instalar IIS, Firewall e baixar o SQL Server automaticamente.
-2. Após a instalação do SQL Server, abra o **SQL Server Management Studio (SSMS)**.
-3. Restaure (`Restore Database`) os três arquivos da pasta `Database/`: `Db_Membership`, `Game34` e `Player34`.
-4. Verifique o usuário conectável (`sa`). A senha padrão nos arquivos é `tuasenha`. Se for utilizar outra, rode `configurar.bat`.
+1. Baixe os 3 arquivos `.bak` do [Release v4.1.0](https://github.com/MatheusPBC/DDTank-Settlers-of-Cucumber/releases/tag/v4.1.0) e coloque na pasta `Database/`.
+2. Execute `instalar_dependencias.bat` como Administrador para instalar IIS, Firewall e baixar o SQL Server automaticamente.
+3. Após a instalação do SQL Server, abra o **SQL Server Management Studio (SSMS)**.
+4. Restaure (`Restore Database`) os três arquivos: `Db_Membership`, `Game34` e `Player34`.
+5. Verifique o usuário conectável (`sa`). A senha padrão nos arquivos é `tuasenha`. Se for utilizar outra, rode `configurar.bat`.
 
 ### 2. Website (IIS)
 1. Abra o painel do IIS Manager no Windows.
