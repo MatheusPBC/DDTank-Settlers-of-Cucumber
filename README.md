@@ -24,10 +24,11 @@ Para rodar este pacote sem erros, seu servidor (ou Máquina Virtual) precisará 
 
 ## Instalação Rápida e Auto-Script
 
-Para minimizar os passos braçais e facilitar sua vida, eu criei duas ferramentas `.bat` na raiz dos arquivos que fazem as coisas sozinhas:
+Para minimizar os passos braçais e facilitar sua vida, eu criei três ferramentas `.bat` na raiz dos arquivos que agem como magia:
 
-*   **`configurar.bat`:** Ao dar dois cliques, ele abre um console preto pedindo para você digitar seu **IP** e sua **Senha do banco de Dados**. Quando você dá "Enter", ele varre automaticamente os 4 arquivos de configuração pesados do jogo e arruma em menos de 1 segundo de uma vez só! Use antes de plugar tudo online.
-*   **`ligar_servidor.bat`:** Inicializa os três arquivos vitais do C# (`Center`, `Fight` e `Road`) nas sequências e intervalos de tempos corretos usando apenas dois cliques.
+*   **`instalar_dependencias.bat`:** **(Execute como Administrador)** Esse script fará todo o trabalho chato do Windows. Ele instala o painel e os recursos do **IIS e ASP.NET** ativando recursos do servidor local, abre as 4 **portas no Firewall** sozinhas e já abre no seu navegador o site de download das dependências do SQL Server. Comece por ele!
+*   **`configurar.bat`:** Ao dar dois cliques, ele abre um console preto pedindo para você digitar seu **IP** e sua **Senha do banco de Dados**. Quando você dá "Enter", ele varre automaticamente os arquivos de configuração do jogo e formata em menos de 1 segundo de uma vez só!
+*   **`ligar_servidor.bat`:** Inicializa os três arquivos vitais do C# (`Center`, `Fight` e `Road`) nas sequências e intervalos de tempos corretos usando apenas um clique duplo.
 
 ### 1. Banco de Dados (SQL Server)
 1. Instale o Microsoft SQL Server e abra o SQL Server Management Studio (SSMS).
